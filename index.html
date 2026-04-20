@@ -374,21 +374,44 @@
                 <div id="ans3" class="correction">Answer: These two friends are <b>reminiscing</b> about old times while looking at a phone. It's great to <b>catch up</b>!</div>
             </div>
             
-        </div>
+        </div> 
         
         <br>
         <h3>Open-Ended Questions</h3>
+
         <div class="vocab-card">
             <p>1. When was the last time you met a <b>long-lost</b> friend? What did you talk about?</p>
-            <textarea></textarea>
-            <button type="button" class="btn-check" onclick="toggleCorrection('q1b')">Show Sample Answer</button>
-            <div id="q1b" class="correction">Sample: I met a long-lost friend from school. We talked about our new jobs.</div>
+            <textarea placeholder="Write your answer here..."></textarea>
+            <button type="button" class="btn-check" onclick="toggleCorrection('open_ans1')">Show Sample Answer</button>
+            <div id="open_ans1" class="correction" style="display:none;">Sample: I met a long-lost friend from school last month. We spent hours <b>reminiscing</b> about old teachers and <b>catching up</b> on our new jobs.</div>
         </div>
+
         <div class="vocab-card">
-            <p>2. Do you like the <b>ambiance</b> of modern coffee shops? Why?</p>
-            <textarea></textarea>
-            <button type="button" class="btn-check" onclick="toggleCorrection('q2b')">Show Sample Answer</button>
-            <div id="q2b" class="correction">Sample: Yes, I like the ambiance because it is quiet and good for working.</div>
+            <p>2. Do you prefer <b>specialty coffee</b> shops or big chains? Why?</p>
+            <textarea placeholder="Write your answer here..."></textarea>
+            <button type="button" class="btn-check" onclick="toggleCorrection('open_ans2')">Show Sample Answer</button>
+            <div id="open_ans2" class="correction" style="display:none;">Sample: I prefer <b>specialty coffee</b> shops because the <b>ambiance</b> is usually more unique and the quality is much higher.</div>
+        </div>
+
+        <div class="vocab-card">
+            <p>3. Why do people say "<b>time flies</b>" when they meet old friends?</p>
+            <textarea placeholder="Write your answer here..."></textarea>
+            <button type="button" class="btn-check" onclick="toggleCorrection('open_ans3')">Show Sample Answer</button>
+            <div id="open_ans3" class="correction" style="display:none;">Sample: People say "<b>time flies</b>" because when you start talking about memories, you realize how many years have passed so quickly.</div>
+        </div>
+
+        <div class="vocab-card">
+            <p>4. Describe the perfect <b>ambiance</b> for a coffee shop reunion.</p>
+            <textarea placeholder="Write your answer here..."></textarea>
+            <button type="button" class="btn-check" onclick="toggleCorrection('open_ans4')">Show Sample Answer</button>
+            <div id="open_ans4" class="correction" style="display:none;">Sample: The perfect <b>ambiance</b> would have soft music, warm lighting, and the wonderful <b>aroma</b> of fresh coffee beans.</div>
+        </div>
+
+        <div class="vocab-card">
+            <p>5. Is it common in your culture to say "<b>this is my treat</b>" when meeting friends?</p>
+            <textarea placeholder="Write your answer here..."></textarea>
+            <button type="button" class="btn-check" onclick="toggleCorrection('open_ans5')">Show Sample Answer</button>
+            <div id="open_ans5" class="correction" style="display:none;">Sample: Yes, in my culture, hospitality is very important. Friends often argue over who gets to pay because everyone wants to say "<b>this is my treat</b>!"</div>
         </div>
     </div>
 </div>
@@ -397,41 +420,25 @@
     function openTab(evt, tabName) {
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tab-content");
-        for (i = 0; i < tabcontent.length; i++) { tabcontent[i].classList.remove("active"); }
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].classList.remove("active");
+        }
         tablinks = document.getElementsByClassName("tab-btn");
-        for (i = 0; i < tablinks.length; i++) { tablinks[i].classList.remove("active"); }
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active");
+        }
         document.getElementById(tabName).classList.add("active");
         evt.currentTarget.classList.add("active");
     }
 
     function toggleCorrection(id) {
         var x = document.getElementById(id);
-        x.style.display = (x.style.display === "block") ? "none" : "block";
-    }
-
-    function checkEx1() {
-        const answers = ['long-lost', 'ambiance', 'reminiscing', 'aroma', 'catch', 'specialty'];
-        for(let i=1; i<=6; i++) {
-            let el = document.getElementById('ex1_'+i);
-            el.style.borderColor = (el.value.toLowerCase().trim() === answers[i-1]) ? "#4CAF50" : "#E57373";
+        if (x.style.display === "none" || x.style.display === "") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
         }
-    }
-
-    function checkEx2() {
-        for(let i=1; i<=3; i++) {
-            let el = document.getElementById('ex2_'+i);
-            el.style.borderColor = (el.value === "correct") ? "#4CAF50" : "#E57373";
-        }
-    }
-
-    function checkEx3() {
-        const ans = ['ages', 'ambiance', 'catch', 'up', 'fill', 'small world'];
-        const ids = ['ex3_1', 'ex3_2', 'ex3_3', 'ex3_4', 'ex3_5', 'ex3_6'];
-        // Note: index mapping depends on your specific input IDs in Ex 3
-        // For simplicity, just checking the first few
-        document.getElementById('ex3_1').style.borderColor = (document.getElementById('ex3_1').value.toLowerCase().trim() === 'ages') ? "#4CAF50" : "#E57373";
     }
 </script>
-
 </body>
 </html>
